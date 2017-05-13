@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="DEBUG">
+ 	<Properties>
+        <Property name="PATTERN">%d{dd/MM/yyyy HH:mm:ss,SSS} %-5p [%c{1}] - %m%n</Property>
+        <Property name="LOG_FILE_NAME_PREFIX">logs-</Property>
+        <Property name="FILE_PATTERN">${LOG_FILE_NAME_PREFIX}-%d{MM-dd-yyyy_hh-mm-ss}.log.zip</Property>
+    </Properties>
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="${PATTERN}" />
+		</Console>
+		<RollingFile name="File" fileName="${LOG_FILE_NAME_PREFIX}unico.log" filePattern="${FILE_PATTERN}">
+            <PatternLayout pattern="${PATTERN}"/>
+            <Policies>
+  			  <SizeBasedTriggeringPolicy size="20 MB"/>
+  			</Policies>
+  			<DefaultRolloverStrategy max="5"/>
+        </RollingFile>
+	</Appenders>
+	<Loggers>
+		<Root level="DEBUG">
+			<AppenderRef ref="Console" />
+			<AppenderRef ref="File" />
+		</Root>
+	</Loggers>
+</Configuration>

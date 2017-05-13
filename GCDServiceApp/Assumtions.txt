@@ -1,0 +1,6 @@
+Assumptions:
+
+1. The build system already has MySQL database installed on it.
+2. Maven and Java is also installed for build and run
+3. Wildfly(JBoss) Application Server - Version 10.1.0.Final is installed.
+
